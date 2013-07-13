@@ -98,10 +98,11 @@ public class GameView extends View {
                     null);
         }
 
-        if (myHand.size() > 7) {
+        if (myHand.size() > 7)
+        {
             canvas.drawBitmap(nextCardButton,
-                    (6*scaledCardW)+10+10,
-                    (screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-scaledCardH+(screenH/2),
+                    (6*scaledCardW)+10+scaledCardW,
+                    screenH-scaledCardH-whitePaint.getTextSize()-5,
                     null);
         }
 
