@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -159,7 +160,6 @@ public class GameView extends View {
                     for(int i=0;i<myHand.size();i++){
                         if((X>(i*scaledCardW+10))&&(X<(i*scaledCardW+10+scaledCardW))&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
                             movingCardIdx=i;
-                            Toast.makeText(myContext,"Index"+movingCardIdx,Toast.LENGTH_SHORT).show();
                             movingX = X-(int)(25*scale);
                             movingY = Y-(int)(30*scale);
                         }
@@ -315,6 +315,15 @@ public class GameView extends View {
         }
         return canDraw;
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+            if(keyCode==KeyEvent.KEYCODE_BACK){
+
+            }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     private void makeComputerPlay(){
         int tempPlay=0;

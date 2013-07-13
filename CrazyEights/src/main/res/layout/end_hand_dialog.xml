@@ -21,7 +21,7 @@ android:id="@+id/endHandText"
 android:id="@+id/nextHandButton"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:text="Next Hand"
+        android:text="@string/next_hand"
         >
         </Button>
         </LinearLayout>
