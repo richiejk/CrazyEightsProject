@@ -7,25 +7,62 @@ import java.util.List;
  */
 public class ComputerPlayer {
 
-    public int makePlay(List<Card> myHand,int suit,int rank){
+    public int makePlay(List<Card> hand,int suit,int rank){
         int play=0;
-        for(int i=0;i<myHand.size();i++){
-            int tempId=myHand.get(i).getId();
-            int tempRank=myHand.get(i).getRank();
-            int tempSuit=myHand.get(i).getSuit();
-            if(rank==8){
-                if(tempSuit==suit){
-                    play=tempId;
+        for (int i = 0; i < hand.size(); i++) {
+            int tempId = hand.get(i).getId();
+            int tempRank = hand.get(i).getRank();
+            int tempSuit = hand.get(i).getSuit();
+            if (tempRank != 8) {
+                if (rank == 8) {
+                    if (suit == tempSuit) {
+                        play = tempId;
+                    }
+                } else if (suit == tempSuit || rank == tempRank)
+                {
+                    play = tempId;
                 }
-
-            }else if(suit==tempSuit||rank==tempRank||tempId==108||tempId==208||tempId==308||tempId==408){
-                play=tempId;
+            }
+        }
+        if (play == 0) {
+            for (int i = 0; i < hand.size(); i++) {
+                int tempId = hand.get(i).getId();
+                if (tempId == 108 || tempId == 208 || tempId == 308 || tempId == 408) {
+                    play = tempId;
+                }
             }
         }
         return play;
     }
 
     public int chooseSuit(List<Card> myHand){
-        return myHand.get(0).getSuit();
+        int numDiamonds=0;
+        int numClubs=0;
+        int numHearts=0;
+        int numSpades=0;
+        for(Card temp:myHand){
+            if(temp.getSuit()==100){
+                numDiamonds++;
+            }
+            if(temp.getSuit()==200){
+                numClubs++;
+            }
+            if(temp.getSuit()==300){
+                numHearts++;
+            }
+            if(temp.getSuit()==400){
+                numSpades++;
+            }
+        }
+        if(numDiamonds>numClubs&&numDiamonds>numSpades&&numDiamonds>numHearts){
+            return 100;
+        }else if(numClubs>numSpades&&numClubs>numHearts){
+            return 200;
+        }else if(numSpades>numHearts){
+            return 400;
+        }else{
+            return 300;
+        }
+
     }
 }

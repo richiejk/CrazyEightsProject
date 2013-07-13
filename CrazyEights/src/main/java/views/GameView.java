@@ -87,7 +87,7 @@ public class GameView extends View {
         canvas.drawBitmap(cardBack,
                 (screenW/2)-cardBack.getWidth()-10,
                 (screenH/2)-(cardBack.getHeight()/2), null);
-        for(int i=0;i<7;i++){
+        for(int i=0;i<oppHand.size();i++){
             canvas.drawBitmap(cardBack,(i*oppHand.get(i).getBitmap().getWidth()/2),whitePaint.getTextSize()+10+whitePaint.getTextSize()+10,null);
         }
 
@@ -125,6 +125,7 @@ public class GameView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         this.screenH=h;
         this.screenW=w;
+
         Bitmap tempBitmap2 =
                 BitmapFactory.decodeResource
                         (myContext.getResources(),
