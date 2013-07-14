@@ -25,8 +25,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="040b390c-30d7-4b76-9cab-2d86de4d71a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/bgg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/layout/splash.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/SplashActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/layout/activity_splash.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/menu/splash.xml" />
+      <change type="DELETED" beforePath="C:\Users\RjK\AndroidStudioProjects\CrazyEightsProject\CrazyEights\src\main\res\drawable-xhdpi\logo.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/bg.jpg" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/bg.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/bgg.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/bgg.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card102.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card102.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card103.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card103.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card104.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card104.png" />
@@ -79,11 +83,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card412.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card412.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card413.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card413.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card414.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card414.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/java/models/ComputerPlayer.java" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/models/ComputerPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card_back.png" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/drawable-xhdpi/card_back.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/java/views/TitleView.java" afterPath="$PROJECT_DIR$/CrazyEights/src/main/java/views/TitleView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrazyEights/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/CrazyEights/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CrazyEights.iws" />
@@ -169,24 +172,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="220" selection-start="2450" selection-end="2450" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="595">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Card.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/models/Card.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1020">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ComputerPlayer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/models/ComputerPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -199,9 +184,21 @@
       <file leaf-file-name="GameView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="41" selection-start="6290" selection-end="6290" vertical-scroll-proportion="0.0" vertical-offset="3094" max-vertical-offset="9061">
+            <state line="151" column="17" selection-start="5015" selection-end="5015" vertical-scroll-proportion="0.0" vertical-offset="2278" max-vertical-offset="9061">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1008#1014#0" expanded="true" />
+                <element signature="e#1171#1177#0" expanded="true" />
+                <element signature="e#1227#1233#0" expanded="true" />
+                <element signature="e#1287#1293#0" expanded="true" />
+                <element signature="e#2674#2948#0" expanded="true" />
+                <element signature="e#2937#2938#0" expanded="true" />
+                <element signature="e#5547#5679#0" expanded="true" />
+                <element signature="e#5668#5669#0" expanded="true" />
+                <element signature="e#13416#14437#0" expanded="true" />
+                <element signature="e#14418#14419#0" expanded="true" />
+                <element signature="e#17639#18020#0" expanded="true" />
+                <element signature="e#18001#18002#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,16 +210,16 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="15" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="238">
+            <state line="7" column="0" selection-start="308" selection-end="308" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="841" selection-end="841" vertical-scroll-proportion="0.33142203" vertical-offset="0" max-vertical-offset="952">
+            <state line="39" column="30" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
@@ -231,7 +228,25 @@
       <file leaf-file-name="CrazyEightsActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="2" selection-start="846" selection-end="846" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+            <state line="19" column="0" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="19" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="731">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SplashActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/SplashActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="62" selection-start="736" selection-end="736" vertical-scroll-proportion="0.40614334" vertical-offset="0" max-vertical-offset="586">
               <folding />
             </state>
           </provider>
@@ -241,7 +256,9 @@
         <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/menu/crazy_eights.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="39" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-              <folding />
+              <folding>
+                <element signature="e#132#157#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -307,15 +324,16 @@
         <option value="$PROJECT_DIR$/CrazyEights/src/main/java/models/Card.java" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/res/layout/end_hand_dialog.xml" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/res/layout/choose_suit_dialog.xml" />
-        <option value="$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/res/layout/how_to_play.xml" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/java/views/TitleView.java" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/res/layout/splash.xml" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/java/models/ComputerPlayer.java" />
-        <option value="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java" />
         <option value="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java" />
+        <option value="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java" />
+        <option value="$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/SplashActivity.java" />
       </list>
     </option>
   </component>
@@ -570,6 +588,9 @@
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.agpfd.crazyeights.activities" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RjK\AndroidStudioProjects\CrazyEightsProject\CrazyEights\src\main\res\drawable-xhdpi" />
       <recent name="C:\Users\RjK\AndroidStudioProjects\CrazyEightsProject\CrazyEights\src\main\res\drawable-hdpi" />
@@ -752,7 +773,11 @@
       <created>1373752400328</created>
       <updated>1373752400328</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="threading">
+      <created>1373797108597</created>
+      <updated>1373797108597</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -785,6 +810,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6815145" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -798,13 +824,12 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.6804009" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3188889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.6815145" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31848553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6804009" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -852,7 +877,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed images and layouts" />
+    <option name="LAST_COMMIT_MESSAGE" value="threading" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -871,24 +896,12 @@
     <MESSAGE value="AI improvement" />
     <MESSAGE value="arrow position fix" />
     <MESSAGE value="changed images and layouts" />
+    <MESSAGE value="threading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/layout/choose_suit_dialog.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="763" selection-end="763" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="663">
-          <folding>
-            <element signature="e#552#573#0" expanded="false" />
-            <element signature="e#1221#1241#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/values/arrays.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="12" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
@@ -917,17 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="220" selection-start="2450" selection-end="2450" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/layout/splash.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="15" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="238">
+        <state line="21" column="220" selection-start="2430" selection-end="2430" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="527">
           <folding />
         </state>
       </provider>
@@ -952,26 +955,10 @@
         <state line="658" column="16" selection-start="30464" selection-end="30464" vertical-scroll-proportion="0.3329453" vertical-offset="10883" max-vertical-offset="19482" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="42" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/models/ComputerPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="14" selection-start="1872" selection-end="1872" vertical-scroll-proportion="0.0" vertical-offset="673" max-vertical-offset="1258">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="41" selection-start="6290" selection-end="6290" vertical-scroll-proportion="0.0" vertical-offset="3094" max-vertical-offset="9061">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,20 +972,67 @@
     <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/menu/crazy_eights.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="39" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding>
+            <element signature="e#132#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="30" selection-start="1193" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/CrazyEightsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="2" selection-start="846" selection-end="846" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+        <state line="19" column="0" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/GameActivity.java">
+    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="841" selection-end="841" vertical-scroll-proportion="0.33142203" vertical-offset="0" max-vertical-offset="952">
+        <state line="33" column="19" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0" vertical-offset="94" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/res/layout/splash.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="308" selection-end="308" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/views/GameView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="17" selection-start="5015" selection-end="5015" vertical-scroll-proportion="0.0" vertical-offset="2278" max-vertical-offset="9061">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1008#1014#0" expanded="true" />
+            <element signature="e#1171#1177#0" expanded="true" />
+            <element signature="e#1227#1233#0" expanded="true" />
+            <element signature="e#1287#1293#0" expanded="true" />
+            <element signature="e#2674#2948#0" expanded="true" />
+            <element signature="e#2937#2938#0" expanded="true" />
+            <element signature="e#5547#5679#0" expanded="true" />
+            <element signature="e#5668#5669#0" expanded="true" />
+            <element signature="e#13416#14437#0" expanded="true" />
+            <element signature="e#14418#14419#0" expanded="true" />
+            <element signature="e#17639#18020#0" expanded="true" />
+            <element signature="e#18001#18002#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrazyEights/src/main/java/com/agpfd/crazyeights/activities/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="62" selection-start="736" selection-end="736" vertical-scroll-proportion="0.40614334" vertical-offset="0" max-vertical-offset="586">
           <folding />
         </state>
       </provider>

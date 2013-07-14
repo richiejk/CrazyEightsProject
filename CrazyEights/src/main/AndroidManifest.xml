@@ -16,14 +16,21 @@
             android:name="com.agpfd.crazyeights.activities.CrazyEightsActivity"
             android:label="@string/title_activity_crazy_eights"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".activities.GameActivity"
-            android:label="@string/title_activity_game" >
+            android:name="com.agpfd.crazyeights.activities.GameActivity"
+            android:label="@string/title_activity_game"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activities.SplashActivity"
+            android:label="@string/title_activity_crazy_eights"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"
+                        />
+            </intent-filter>
         </activity>
     </application>
 

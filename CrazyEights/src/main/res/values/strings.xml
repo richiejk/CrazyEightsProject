@@ -9,21 +9,17 @@
     <string name="next_hand">Next Hand</string>
     <string name="choose_suit">Choose a suit.</string>
     <string name="ok_message">OK</string>
-    <string name="help_intro">Crazy Eights, also known as Eights and as Swedish Rummy, is a distant relative of Rummy. It is an easy and fun game to play!
-    </string>
+    <string name="help_intro">Crazy Eights, also known as Eights and as Swedish Rummy, is a distant relative of Rummy. It is an easy and fun game to play!</string>
     <string name="goal_heading">Goal</string>
     <string name="goal_body">To discard all of your cards.</string>
     <string name="setup_heading">Setup</string>
-    <string name="setup_body">Seven cards are dealt to each player. Of the remainder, one card is turned faceup to begin the discard pile. The rest of the cards are placed facedown to serve as the stock.
-    </string>
+    <string name="setup_body">Seven cards are dealt to each player. Of the remainder, one card is turned faceup to begin the discard pile. The rest of the cards are placed facedown to serve as the stock.</string>
     <string name="gameplay_heading">Gameplay</string>
-    <string name="gameplay_body">The starting turn is chosen at random.The first player will cover the upcard with one that matches either by suit or rank.For example, if the upcard is a 5 of hearts you may play any heart or any 5. You can play an 8 at any time. If an 8 is played,the player can declare a new suit and the next player must play the suit declared or an 8 - meaning if the player who played an 8 shifts declares the suits to hearts, you will need to play a heart or an 8. If you cannot find a match from your hand, you will have to draw from stock until you are able to. Play continues until one player has no cards left. If the stock runs out before the game is over, the discard pile is shuffled and used to reestablish the stock.
-    </string>
+    <string name="gameplay_body">The starting turn is chosen at random.The first player will cover the upcard with one that matches either by suit or rank.For example, if the upcard is a 5 of hearts you may play any heart or any 5. You can play an 8 at any time. If an 8 is played,the player can declare a new suit and the next player must play the suit declared or an 8 - meaning if the player who played an 8 shifts declares the suits to hearts, you will need to play a heart or an 8. If you cannot find a match from your hand, you will have to draw from stock until you are able to. Play continues until one player has no cards left. If the stock runs out before the game is over, the discard pile is shuffled and used to reestablish the stock.</string>
     <string name="scoring_heading">Scoring</string>
-    <string name="scoring_body">The winner scores the point count of the total of all the cards left in the opponents\' hands. Each 8 counts 50, face cards count 10, and all others count their face value (ace counts 1 point). The first player to reach 300 points wins!
-    </string>
+    <string name="scoring_body">The winner scores the point count of the total of all the cards left in the opponents\' hands. Each 8 counts 50, face cards count 10, and all others count their face value (ace counts 1 point). The first player to reach 300 points wins!</string>
     <string name="tips_heading">Tips:</string>
-    <string name="tips_body">When you have many cards of one suit, your opponent may find that suit hard to match. Don\'t get caught holding wild cards (8s) at the end of play, since they count a whopping 50 points each.
-    </string>
+    <string name="tips_body">When you have many cards of one suit, your opponent may find that suit hard to match. Don\'t get caught holding wild cards (8s) at the end of play, since they count a whopping 50 points each.</string>
+    <string name="title_activity_splash">MainActivity</string>
 
 </resources>
