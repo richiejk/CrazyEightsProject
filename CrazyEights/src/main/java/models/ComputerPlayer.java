@@ -56,9 +56,9 @@ public class ComputerPlayer {
         }
         if(numDiamonds>numClubs&&numDiamonds>numSpades&&numDiamonds>numHearts){
             return 100;
-        }else if(numClubs>numSpades&&numClubs>numHearts){
+        }else if(numClubs>numDiamonds&&numClubs>numSpades&&numClubs>numHearts){
             return 200;
-        }else if(numSpades>numHearts){
+        }else if(numSpades>numDiamonds&&numClubs<numSpades&&numSpades>numHearts){
             return 400;
         }else{
             return 300;

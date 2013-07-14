@@ -1,12 +1,16 @@
 package views;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +25,7 @@ import com.agpfd.crazyeights.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -54,6 +59,20 @@ public class GameView extends View {
     private Bitmap nextCardButton;
     private ComputerPlayer computerPlayer = new ComputerPlayer();
     private int scoreThisHand = 0;
+    private ProgressDialog pg;
+    private HashMap<Integer,Bitmap> bmHash;
+    private static int INIT_CARDS_DONE=0;
+    private static int INIT_BMPS=0;
+    private static int INIT_BMPS_HASH=0;
+    Handler mainHandler;
+    Runnable myRunnable;
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mainHandler.post(myRunnable);
+
+    }
 
     public GameView(Context context) {
         super(context);
@@ -64,8 +83,20 @@ public class GameView extends View {
         whitePaint.setAntiAlias(true);
         whitePaint.setStyle(Paint.Style.STROKE);
         whitePaint.setTextAlign(Paint.Align.LEFT);
-        whitePaint.setTextSize(scale*15);
+        whitePaint.setTextSize(scale*13);
+        INIT_CARDS_DONE=0;
+        INIT_BMPS=0;
+        mainHandler = new Handler(myContext.getMainLooper());
 
+        myRunnable = new Runnable() {
+            @Override
+            public void run() {
+                pg=new ProgressDialog(myContext);
+                pg.setMessage("Loading game...");
+                pg.setCanceledOnTouchOutside(false);
+                pg.show();
+            }
+        }; // This is your code
     }
 
     private void updateScores() {
@@ -81,15 +112,20 @@ public class GameView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
         super.onDraw(canvas);
+        if(INIT_BMPS==1){
+
        // canvas.drawBitmap(deck.get(0).getBitmap(), 0, 0, null);
-        canvas.drawText("Computer's Score: "+oppScore,0,whitePaint.getTextSize()+10,whitePaint);
-        canvas.drawText("My score: "+myScore,0,screenH-whitePaint.getTextSize()-10,whitePaint);
+        canvas.drawText("Computer's Score: "+oppScore,10,whitePaint.getTextSize()+10,whitePaint);
+        canvas.drawText("My score: "+myScore,10,screenH-whitePaint.getTextSize(),whitePaint);
         canvas.drawBitmap(cardBack,
                 (screenW/2)-cardBack.getWidth()-10,
                 (screenH/2)-(cardBack.getHeight()/2), null);
+
         for(int i=0;i<oppHand.size();i++){
-            canvas.drawBitmap(cardBack,(i*oppHand.get(i).getBitmap().getWidth()/2),whitePaint.getTextSize()+10+whitePaint.getTextSize()+10,null);
+
+            canvas.drawBitmap(cardBack,(i*oppHand.get(i).getBitmap().getWidth()/2)+10,whitePaint.getTextSize()+10+whitePaint.getTextSize(),null);
         }
 
         if (!discardPile.isEmpty()) {
@@ -102,7 +138,7 @@ public class GameView extends View {
         if (myHand.size() > 7)
         {
             canvas.drawBitmap(nextCardButton,
-                    (6*scaledCardW)+10+scaledCardW,
+                    (6*scaledCardW)+10+scaledCardW+10,
                     screenH-scaledCardH-whitePaint.getTextSize()-5,
                     null);
         }
@@ -110,15 +146,27 @@ public class GameView extends View {
         for(int i=0;i<myHand.size();i++){
             if(movingCardIdx==i){
                 canvas.drawBitmap(myHand.get(i).getBitmap(),movingX,movingY,null);
-
             }else{
                 if (i < 7) {
-                canvas.drawBitmap(myHand.get(i).getBitmap(),(i*myHand.get(i).getBitmap().getWidth())+10,(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight(),null);
+                canvas.drawBitmap(myHand.get(i).getBitmap(),(i*(myHand.get(i).getBitmap().getWidth()+1))+10,(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight(),null);
                 }
             }
 
         }
+
+        if(pg.isShowing()){
+            pg.dismiss();
+        }
+
         invalidate();
+        }else{
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            invalidate();
+        }
 
     }
 
@@ -128,19 +176,18 @@ public class GameView extends View {
         this.screenH=h;
         this.screenW=w;
 
-        Bitmap tempBitmap2 =
-                BitmapFactory.decodeResource
-                        (myContext.getResources(),
-                                R.drawable.card_back);
-        nextCardButton =BitmapFactory.decodeResource(myContext.getResources(),R.drawable.arrow_next);
-        scaledCardW = (int) (screenW/8);
-        scaledCardH = (int) (scaledCardW*1.28);
-        cardBack = Bitmap.createScaledBitmap
-                (tempBitmap2, scaledCardW,
-                        scaledCardH,false);
+        Thread th=new Thread(new Runnable(){
+            public void run(){
+
+                initBitmaps();
+                setBitmaps();
+            }
+        });
+        setBackgroundResource(R.drawable.bgg);
         initCards();
         dealCards();
         drawCard(discardPile);
+        th.start();
         validRank=discardPile.get(0).getRank();
         validSuit=discardPile.get(0).getSuit();
         myTurn=new Random().nextBoolean();
@@ -148,6 +195,8 @@ public class GameView extends View {
             makeComputerPlay();
         }
     }
+
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -202,11 +251,10 @@ public class GameView extends View {
                     }
                 }
                 if (myHand.size() > 7 &&
-                        X > screenW-nextCardButton.getWidth()-(30*scale) &&
-                        Y > screenH-nextCardButton.getHeight()-scaledCardH-
-                                (90*scale) &&
-                        Y < screenH-nextCardButton.getHeight()-scaledCardH-
-                                (60*scale)) {
+                        X > (6*scaledCardW)+10+scaledCardW+10 &&
+                        X < (6*scaledCardW)+10+scaledCardW+10+nextCardButton.getWidth()&&
+                        Y > screenH-scaledCardH-whitePaint.getTextSize()-5 &&
+                        Y <(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())) {
                     Collections.rotate(myHand, 1);
                 }
                 movingCardIdx=-1;
@@ -216,6 +264,62 @@ public class GameView extends View {
         return true;
     }
 
+    private void initBitmaps(){
+        Bitmap tempBitmap2 =
+                BitmapFactory.decodeResource
+                        (myContext.getResources(),
+                                R.drawable.card_back);
+        nextCardButton =BitmapFactory.decodeResource(myContext.getResources(),R.drawable.arrow_next);
+        scaledCardW = (int) (screenW/8);
+        scaledCardH = (int) (scaledCardW*1.28);
+        cardBack = Bitmap.createScaledBitmap
+                (tempBitmap2, scaledCardW,
+                        scaledCardH,false);
+
+        bmHash=new HashMap<Integer, Bitmap>();
+        for(int i=0;i<4;i++){
+            for(int j=102;j<115;j++){
+                int tempId=j+(i*100);
+                int resourceId=getResources().getIdentifier("card"+tempId,"drawable",myContext.getPackageName());
+                Bitmap tempBitmap= BitmapFactory.decodeResource(getResources(),resourceId);
+                scaledCardW = (int) (screenW/8);
+                scaledCardH = (int) (scaledCardW*1.28);
+                Bitmap scaledBitmap=Bitmap.createScaledBitmap(tempBitmap,scaledCardW,scaledCardH,false);
+                bmHash.put(tempId,scaledBitmap);
+            }
+
+        }
+
+    }
+
+    private void setBitmaps(){
+        if(INIT_CARDS_DONE==1){
+            for(Card temp:myHand){
+                temp.setBitmap(bmHash.get(temp.getId()));
+            }
+            for(Card temp:oppHand){
+                temp.setBitmap(bmHash.get(temp.getId()));
+            }
+            for(Card temp:deck){
+                temp.setBitmap(bmHash.get(temp.getId()));
+            }
+            for(Card temp:discardPile){
+                temp.setBitmap(bmHash.get(temp.getId()));
+            }
+
+        INIT_BMPS=1;
+
+        }else{
+            try {
+                Thread.sleep(500);
+                setBitmaps();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
     private void initCards(){
 
 
@@ -223,16 +327,17 @@ public class GameView extends View {
             for(int j=102;j<115;j++){
                 int tempId=j+(i*100);
                 Card tempCard=new Card(tempId);
-                int resourceId=getResources().getIdentifier("card"+tempId,"drawable",myContext.getPackageName());
-                Bitmap tempBitmap= BitmapFactory.decodeResource(getResources(),resourceId);
-                scaledCardW = (int) (screenW/8);
-                scaledCardH = (int) (scaledCardW*1.28);
-                Bitmap scaledBitmap=Bitmap.createScaledBitmap(tempBitmap,scaledCardW,scaledCardH,false);
-                tempCard.setBitmap(scaledBitmap);
+                //int resourceId=getResources().getIdentifier("card"+tempId,"drawable",myContext.getPackageName());
+               //Bitmap tempBitmap= BitmapFactory.decodeResource(getResources(),resourceId);
+                //scaledCardW = (int) (screenW/8);
+               // scaledCardH = (int) (scaledCardW*1.28);
+              //  Bitmap scaledBitmap=Bitmap.createScaledBitmap(tempBitmap,scaledCardW,scaledCardH,false);
+                //tempCard.setBitmap(scaledBitmap);
                 deck.add(tempCard);
 
             }
         }
+        INIT_CARDS_DONE=1;
     }
 
     private void dealCards(){
@@ -315,15 +420,6 @@ public class GameView extends View {
         }
         return canDraw;
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-            if(keyCode==KeyEvent.KEYCODE_BACK){
-
-            }
-        return super.onKeyDown(keyCode, event);
-    }
-
 
     private void makeComputerPlay(){
         int tempPlay=0;

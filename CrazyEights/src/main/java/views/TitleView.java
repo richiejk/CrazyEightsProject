@@ -37,6 +37,13 @@ public class TitleView  extends View {
     private int scaledButtonW;
     private int scaledButtonH;
 
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        setBackgroundResource(R.drawable.bg);
+
+    }
+
     public TitleView(Context context) {
         super(context);
         this.myContext=context;
