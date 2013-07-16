@@ -64,6 +64,7 @@ public class GameView extends View {
     private static int INIT_CARDS_DONE=0;
     private static int INIT_BMPS=0;
     private static int INIT_BMPS_HASH=0;
+    private static int READY_FOR_TOUCH=0;
     Handler mainHandler;
     Runnable myRunnable;
 
@@ -87,7 +88,7 @@ public class GameView extends View {
         INIT_CARDS_DONE=0;
         INIT_BMPS=0;
         mainHandler = new Handler(myContext.getMainLooper());
-
+        READY_FOR_TOUCH=0;
         myRunnable = new Runnable() {
             @Override
             public void run() {
@@ -157,7 +158,7 @@ public class GameView extends View {
         if(pg.isShowing()){
             pg.dismiss();
         }
-
+        READY_FOR_TOUCH=1;
         invalidate();
         }else{
             try {
@@ -205,7 +206,7 @@ public class GameView extends View {
         int Y = (int)event.getY();
         switch (eventaction ) {
             case MotionEvent.ACTION_DOWN:
-                if(myTurn==true){
+                if(READY_FOR_TOUCH==1&&myTurn==true){
                     for(int i=0;i<myHand.size();i++){
                         if((X>(i*scaledCardW+10))&&(X<(i*scaledCardW+10+scaledCardW))&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
                             movingCardIdx=i;
