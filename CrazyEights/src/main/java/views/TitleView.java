@@ -102,7 +102,7 @@ public class TitleView  extends View {
                     else if((Y>helpButtonY)&&(Y<helpButtonY+helpButton.getHeight())){
                         showInstructions();
                     }else if((Y>helpButtonY+helpButton.getHeight())&&(Y<helpButtonY+helpButton.getHeight()+exitButton.getHeight())){
-                        System.exit(0);
+                         ((Activity)myContext).finish();
                     }
                 }break;
             case MotionEvent.ACTION_UP:
