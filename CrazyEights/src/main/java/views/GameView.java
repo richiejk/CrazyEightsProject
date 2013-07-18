@@ -208,7 +208,7 @@ public class GameView extends View {
             case MotionEvent.ACTION_DOWN:
                 if(READY_FOR_TOUCH==1&&myTurn==true){
                     for(int i=0;i<myHand.size();i++){
-                        if((X>(i*scaledCardW+10))&&(X<(i*scaledCardW+10+scaledCardW))&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
+                        if(i<7&&(X>(i*scaledCardW+10))&&(X<(i*scaledCardW+10+scaledCardW))&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
                             movingCardIdx=i;
                             movingX = X-(int)(25*scale);
                             movingY = Y-(int)(30*scale);

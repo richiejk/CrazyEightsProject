@@ -27,7 +27,7 @@ public class SplashActivity extends Activity {
                 startActivity(intent);
                 finish();
             }
-        },4000);
+        },3000);
 /*        try {
             Thread.sleep(7000);
             Intent intent=new Intent(SplashActivity.this,CrazyEightsActivity.class);
