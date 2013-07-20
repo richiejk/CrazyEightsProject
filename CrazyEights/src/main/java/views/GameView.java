@@ -11,6 +11,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
+import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,7 +37,7 @@ import models.ComputerPlayer;
 /**
  * Created by RjK on 7/12/13.
  */
-public class GameView extends View {
+public class GameView extends View implements GestureDetector.OnGestureListener {
     Context myContext;
     private List<Card> deck = new ArrayList<Card>();
     private int scaledCardW;
@@ -50,6 +52,7 @@ public class GameView extends View {
     private int oppScore;
     private int myScore;
     private Bitmap cardBack;
+    private Bitmap backArrow;
     private boolean myTurn;
     private int movingCardIdx = -1;
     private int movingX;
@@ -136,11 +139,15 @@ public class GameView extends View {
                     null);
         }
 
-        if (myHand.size() > 7)
+        if (myHand.size() > 9)
         {
-            canvas.drawBitmap(nextCardButton,
-                    (6*scaledCardW)+10+scaledCardW+10,
-                    screenH-scaledCardH-whitePaint.getTextSize()-5,
+            canvas.drawBitmap(nextCardButton,(int)(screenW-(scaledCardW/2))+10
+                    ,
+                    screenH-scaledCardH-whitePaint.getTextSize()+10,
+                    null);
+
+            canvas.drawBitmap(backArrow,5,
+                    screenH-scaledCardH-whitePaint.getTextSize()+10,
                     null);
         }
 
@@ -148,8 +155,8 @@ public class GameView extends View {
             if(movingCardIdx==i){
                 canvas.drawBitmap(myHand.get(i).getBitmap(),movingX,movingY,null);
             }else{
-                if (i < 7) {
-                canvas.drawBitmap(myHand.get(i).getBitmap(),(i*(myHand.get(i).getBitmap().getWidth()+1))+10,(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight(),null);
+                if (i <9) {
+                canvas.drawBitmap(myHand.get(i).getBitmap(),(i*myHand.get(i).getBitmap().getWidth()/2)+15+backArrow.getWidth(),(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight(),null);
                 }
             }
 
@@ -189,6 +196,7 @@ public class GameView extends View {
         dealCards();
         drawCard(discardPile);
         th.start();
+        mDetector = new GestureDetectorCompat(myContext,this);
         validRank=discardPile.get(0).getRank();
         validSuit=discardPile.get(0).getSuit();
         myTurn=new Random().nextBoolean();
@@ -197,25 +205,56 @@ public class GameView extends View {
         }
     }
 
+    //(i*myHand.get(i).getBitmap().getWidth()/2)+10
+
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        this.mDetector.onTouchEvent(event);
+        // Be sure to call the superclass implementation
+
         int eventaction = event.getAction();
         int X = (int)event.getX();
         int Y = (int)event.getY();
         switch (eventaction ) {
             case MotionEvent.ACTION_DOWN:
                 if(READY_FOR_TOUCH==1&&myTurn==true){
+                    int lessThan;
+
+                    if (myHand.size() > 9 &&
+                            X >(screenW-(scaledCardW/2))+10 &&
+                            Y > screenH-scaledCardH-whitePaint.getTextSize()-5 &&
+                            Y <(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())) {
+                        Collections.rotate(myHand, 1);
+                    }else if(myHand.size() > 9 &&
+                            X <(0*scaledCardW/2)+20+backArrow.getWidth() &&
+                            Y > screenH-scaledCardH-whitePaint.getTextSize()-5 &&
+                            Y <(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())) {
+                        Collections.rotate(myHand, -1);
+                    }
+
                     for(int i=0;i<myHand.size();i++){
-                        if(i<7&&(X>(i*scaledCardW+10))&&(X<(i*scaledCardW+10+scaledCardW))&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
+                        lessThan=(i+1)*scaledCardW/2+15+backArrow.getWidth();
+
+                        if(myHand.size()<9){
+                            lessThan=(i+1)*scaledCardW+10;
+                        }else if(i==8){
+                            lessThan=(screenW-(scaledCardW/2))+10;
+                        }
+
+
+                        if(i<9&&(X>(i*scaledCardW/2+15)+backArrow.getWidth())&&(X<lessThan)&&(Y>(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-myHand.get(i).getBitmap().getHeight())&&(Y<screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())){
                             movingCardIdx=i;
                             movingX = X-(int)(25*scale);
                             movingY = Y-(int)(30*scale);
                         }
+
                     }
                 }
                 break;
+
             case MotionEvent.ACTION_MOVE:
                 movingX = X-(int)(25*scale);
                 movingY = Y-(int)(30*scale);
@@ -248,16 +287,12 @@ public class GameView extends View {
                     if (checkForValidDraw()) {
                         drawCard(myHand);
                     } else {
-                        Toast.makeText(myContext, "You cannot pick a card from the deck when you have at least 1 valid play remaining", Toast.LENGTH_SHORT).show();
+                      drawCard(myHand); //only for testing arrow
+                     //   Toast.makeText(myContext, "You cannot pick a card from the deck when you have at least 1 valid play remaining", Toast.LENGTH_SHORT).show();
                     }
                 }
-                if (myHand.size() > 7 &&
-                        X > (6*scaledCardW)+10+scaledCardW+10 &&
-                        X < (6*scaledCardW)+10+scaledCardW+10+nextCardButton.getWidth()&&
-                        Y > screenH-scaledCardH-whitePaint.getTextSize()-5 &&
-                        Y <(screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())) {
-                    Collections.rotate(myHand, 1);
-                }
+
+
                 movingCardIdx=-1;
                 break;
         }
@@ -271,8 +306,9 @@ public class GameView extends View {
                         (myContext.getResources(),
                                 R.drawable.card_back);
         nextCardButton =BitmapFactory.decodeResource(myContext.getResources(),R.drawable.arrow_next);
-        scaledCardW = (int) (screenW/8);
-        scaledCardH = (int) (scaledCardW*1.28);
+        backArrow=BitmapFactory.decodeResource(myContext.getResources(),R.drawable.arrow_prev);
+        scaledCardW = (int) (screenW/6);
+        scaledCardH = (int) (scaledCardW*1.4);
         cardBack = Bitmap.createScaledBitmap
                 (tempBitmap2, scaledCardW,
                         scaledCardH,false);
@@ -283,8 +319,6 @@ public class GameView extends View {
                 int tempId=j+(i*100);
                 int resourceId=getResources().getIdentifier("card"+tempId,"drawable",myContext.getPackageName());
                 Bitmap tempBitmap= BitmapFactory.decodeResource(getResources(),resourceId);
-                scaledCardW = (int) (screenW/8);
-                scaledCardH = (int) (scaledCardW*1.28);
                 Bitmap scaledBitmap=Bitmap.createScaledBitmap(tempBitmap,scaledCardW,scaledCardH,false);
                 bmHash.put(tempId,scaledBitmap);
             }
@@ -525,4 +559,110 @@ public class GameView extends View {
             makeComputerPlay();
         }
     }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float v, float v2) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float v, float v2) {
+        int X1=(int)motionEvent.getX();
+        int Y1=(int)motionEvent.getY();
+
+        int X2=(int)motionEvent2.getX();
+        int Y2=(int)motionEvent2.getY();
+
+        float diffY = motionEvent2.getY() - motionEvent.getY();
+        float diffX = motionEvent2.getX() - motionEvent.getX();
+
+        if(myHand.size()>9&&Y1>((screenH-whitePaint.getTextSize()-10-whitePaint.getTextSize())-scaledCardH)){
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(v) > SWIPE_VELOCITY_THRESHOLD) {
+                    int fV=firstDigit(v);
+                   if (diffX > 0) {
+                      /*  int fV=firstDigit(v);
+
+                        for(int i=0;i<fV;i++){
+                            if(fV<0){
+                                Collections.rotate(myHand,-1);
+                            }else{
+
+                            }
+                            invalidate();
+                        }
+
+*/
+
+                       if(fV<0){
+                           fV=-fV;
+                       }
+                       for(int i=0;i<fV;i++){
+                           Collections.rotate(myHand,1);
+                           invalidate();
+                       }
+
+                       invalidate();
+                    } else {
+                        if(fV>0){
+                            fV=-fV;
+                        }
+                       for(int i=0;i<(-fV);i++){
+                       Collections.rotate(myHand,fV);
+                       invalidate();
+                       }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public static int firstDigit(float n1) {
+        int n=(int)n1;
+        while (n < -9 || 9 < n) n /= 10;
+        return Math.abs(n);
+    }
+
+    public static char firstDigit2(float n1) {
+        if(n1<0){
+            n1=-n1;
+        }
+
+        String f=n1+"";
+        if(f.length()==3){
+            return f.charAt(0);
+        }else{
+            return '8';
+        }
+
+       /* int n=(int)n1;
+        while (n < -9 || 9 < n) n /= 10;
+        return Math.abs(n);*/
+    }
+
+    private static final int SWIPE_THRESHOLD = 100;
+    private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+    private GestureDetectorCompat mDetector;
 }
