@@ -287,8 +287,8 @@ public class GameView extends View implements GestureDetector.OnGestureListener 
                     if (checkForValidDraw()) {
                         drawCard(myHand);
                     } else {
-                      drawCard(myHand); //only for testing arrow
-                     //   Toast.makeText(myContext, "You cannot pick a card from the deck when you have at least 1 valid play remaining", Toast.LENGTH_SHORT).show();
+                    //  drawCard(myHand); //only for testing arrow
+                        Toast.makeText(myContext, "You cannot pick a card from the deck when you have at least 1 valid play remaining", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -502,6 +502,7 @@ public class GameView extends View implements GestureDetector.OnGestureListener 
         updateScores();
         TextView endHandText = (TextView)
         endHandDialog.findViewById(R.id.endHandText);
+        endHandDialog.setCanceledOnTouchOutside(false);
         if (myHand.isEmpty()) {
             if (myScore >= 300) { 
                 endHandText.setText("You reached " + myScore +

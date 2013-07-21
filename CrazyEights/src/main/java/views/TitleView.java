@@ -1,12 +1,15 @@
 package views;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -116,7 +119,7 @@ public class TitleView  extends View {
     }
 
     private void showInstructions() {
-        final Dialog showHelp =
+      /*  final Dialog showHelp =
                 new Dialog(myContext);
         showHelp.requestWindowFeature
                 (Window.FEATURE_NO_TITLE);
@@ -131,6 +134,16 @@ public class TitleView  extends View {
                      showHelp.dismiss();
                     }
                 });
-        showHelp.show();
+        showHelp.show();*/
+
+        final AlertDialog  alertDialog = new AlertDialog.Builder(myContext).create();
+        alertDialog.setTitle("How to play");
+        alertDialog.setMessage(Html.fromHtml(myContext.getResources().getString(R.string.full_desc)));
+        alertDialog.setButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }
